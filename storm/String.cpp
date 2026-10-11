@@ -337,6 +337,7 @@ uint32_t SStrHashHT(const char* string) {
 
 size_t SStrLen(const char* string) {
     STORM_ASSERT(string);
+    STORM_VALIDATE(string, ERROR_INVALID_PARAMETER, 0);
 
     auto stringEnd = string;
     while (*stringEnd) {

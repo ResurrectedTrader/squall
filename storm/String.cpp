@@ -267,6 +267,10 @@ size_t SStrCopy(char* dest, const char* source, size_t destsize) {
     STORM_ASSERT(source);
     STORM_VALIDATE(dest && source, ERROR_INVALID_PARAMETER, 0);
 
+    if (!destsize) {
+        return 0;
+    }
+
     char* destbuf = dest;
 
     if (destsize == STORM_MAX_STR) {

@@ -119,6 +119,15 @@ TEST_CASE("SStrCmpI", "[string]") {
     }
 }
 
+TEST_CASE("SStrCopy", "[string]") {
+    SECTION("does not write to dest when destsize is 0") {
+        char dest[1] = { 'x' };
+        auto length = SStrCopy(dest, "foo", 0);
+        REQUIRE(length == 0);
+        REQUIRE(dest[0] == 'x');
+    }
+}
+
 TEST_CASE("SStrDupA", "[string]") {
     SECTION("duplicates string correctly") {
         auto string1 = "foo bar";
